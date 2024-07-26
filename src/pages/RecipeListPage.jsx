@@ -2,7 +2,7 @@ import { Center, Heading, Flex } from "@chakra-ui/react";
 import { data } from "../utils/data";
 import { RecipeItem } from "../components/RecipeItem";
 
-export const RecipeListPage = (/*{ recipes, clickFn }*/) => {
+export const RecipeListPage = (/*{ recipes , clickFn }*/) => {
   // You can play around with the console log, but ultimately remove it once you are done
   // console.log(data.hits[2].recipe.label);
   /*return (
