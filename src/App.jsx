@@ -3,7 +3,7 @@ import { RecipePage } from "./components/RecipePage";
 import { useState } from "react";
 
 export const App = () => {
-  const [selectedRecipe, setSelectedRecipe] = useState(RecipePage);
+  //const [selectedRecipe, setSelectedRecipe] = useState(RecipePage);
 
   return <RecipeListPage />;
 };
