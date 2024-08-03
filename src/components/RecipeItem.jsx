@@ -11,7 +11,13 @@ export const RecipeItem = ({ recipe, clickFn }) => {
           borderRadius={"xl"}
           alt={recipe.alt}
         />
-        <Text fontWeight={"450"}>{recipe.name}</Text>
+        <Text fontWeight={"550"}>{recipe.label}</Text>
+        <Text fontWeight={"350"}>{recipe.dietLabels}</Text>
+        <Text fontWeight={"350"}>{recipe.cautions}</Text>
+        <Text fontWeight={"350"}>{recipe.mealType}</Text>
+        <Text fontWeight={"350"}>{recipe.dishType}</Text>
+        <Text fontWeight={"350"}>{recipe.healthLabels}</Text>
+        <Text fontWeight={"350"}></Text>
       </Center>
     </WrapItem>
   );
