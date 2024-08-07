@@ -11,7 +11,7 @@ import { RecipeItems } from "../components/RecipeItems";
 //console.log(data);
 //console.log(data.hits[0].recipe.ingredientLines);
 
-export const RecipeListPage = () => {
+export const RecipeListPage = (setSelectedRecipe) => {
   return (
     <Center>
       <Heading>Your Recipe App</Heading>
