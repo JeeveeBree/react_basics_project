@@ -1,3 +1,5 @@
+/*
+
 import { Center, Image, Text, WrapItem } from "@chakra-ui/react";
 
 export const RecipeItem = ({ recipe, clickFn }) => {
@@ -22,6 +24,18 @@ export const RecipeItem = ({ recipe, clickFn }) => {
     </WrapItem>
   );
 };
+
+
+  const filteredHealthLabels = (labels) => {
+    return labels.filter((label) => {
+      const labels = label.data.hits.healthLabels || [];
+      console.log([data.hits.healthLabels]);
+      return labels.includes("Vegan") || labels.includes("Vegetarian");
+    });
+  };
+
+
+*/
 /*
 const {filteredHealthLabels && (
   <Badges list={filteredHealthLabels} />
@@ -30,13 +44,17 @@ const {filteredHealthLabels && (
 label === 'Vegan' || label === 'Vegetarian'
 recipe.healthLabels.filter
 
-
+*/
 
 import { Center, Image, Text, WrapItem } from "@chakra-ui/react";
 
 export const RecipeItem = ({ recipe, clickFn }) => {
-	const filteredHealthLabels = // code voor het filteren (.filter functie)
-	
+  const filteredHealthLabels = (labels) => {
+    const validLabels = ["Vegan", "Vegetarian"];
+    return labels.filter((label) => validLabels.includes(label));
+  };
+  const healthLabels = filteredHealthLabels(recipe.healthLabels);
+
   return (
     <WrapItem>
       <Center gap={8} cursor={"pointer"} onClick={() => clickFn(recipe)}>
@@ -52,10 +70,10 @@ export const RecipeItem = ({ recipe, clickFn }) => {
         <Text fontWeight={"350"}>{recipe.cautions}</Text>
         <Text fontWeight={"350"}>{recipe.mealType}</Text>
         <Text fontWeight={"350"}>{recipe.dishType}</Text>
-        <Text fontWeight={"350"}>{filteredHealthLabels}</Text>
-        <Text fontWeight={"350"}></Text>
+        <Text fontWeight={"350"}>
+          {healthLabels.length > 0 ? healthLabels.join("", "") : ""}
+        </Text>
       </Center>
     </WrapItem>
   );
 };
-*/

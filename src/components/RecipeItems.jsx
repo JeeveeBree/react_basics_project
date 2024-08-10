@@ -2,6 +2,8 @@ import { Flex } from "@chakra-ui/react";
 import { RecipeItem } from "./RecipeItem";
 
 export const RecipeItems = ({ recipe, onClick }) => {
+  //console.log(recipe);
+  if (!recipe) return null;
   return (
     <Flex
       gap={16}

@@ -3,25 +3,46 @@ import { TextInput } from "./ui/Textinput";
 import { RecipeItems } from "./RecipeItems";
 import { data } from "../utils/data";
 
+console.log(data);
 
 export const RecipeSearch = ({ onClick }) => {
   const [searchField, setSearchField] = useState("");
-  const matchedRecipes = [data].filter((label) => {
-    return label.toLowerCase().includes(searchField.toLowerCase());
-  });
+  const [selectedHealthLabel, setSelectedHealthLabel] = useState("");
+
   const handleChange = (event) => {
     setSearchField(event.target.value);
   };
+
+  const handleHealthLabelChange = (event) => {
+    setSelectedHealthLabel(event.target.value);
+  };
+
+  const matchedRecipes = Array.isArray(data.hits)
+    ? data.hits.filter((recipe) => {
+        return (
+          recipe.label &&
+          recipe.label.toLowerCase().includes(searchField.toLowerCase())
+        );
+      })
+    : [];
+  /*
+  const matchedRecipes = data.hits.filter((recipe) => {
+    return recipe.label.toLowercase().includes(searchField.toLowerCase());
+  });*/ /*
+  const matchedRecipes = data.filter((label) => {
+    return label.toLowerCase().includes(searchField.toLowerCase());
+  });*/
+
   return (
     <>
-      <label>Search for recipes:</label>
+      <label>Search for recipes or health labels:</label>
       <TextInput onChange={handleChange} w={200} mb={8} />
       <RecipeItems onClick={onClick} recipes={matchedRecipes} />
     </>
   );
 };
 
-
+/*
 
 <RecipesPage setRecipe={setSelectedRecipe} />
 const [selectedRecipe, setSelectedRecipe] = useState();
@@ -35,3 +56,4 @@ const [selectedRecipeList, setSelectedRecipeList] = useState(data.hits);
 <RecipesPage setRecipe={setSelectedRecipe} />
 export const RecipeListPage = ({setRecipe}) => {
 
+*/

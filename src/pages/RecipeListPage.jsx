@@ -1,21 +1,18 @@
 import { Center, Heading, Flex, Text } from "@chakra-ui/react";
-import {
-  List,
-  ListItem,
-  ListIcon,
-  OrderedList,
-  UnorderedList,
-} from "@chakra-ui/react";
+import { ListItem, List } from "@chakra-ui/react";
 import { data } from "../utils/data";
 import { RecipeItems } from "../components/RecipeItems";
+import { RecipeSearch } from "../components/RecipeSearch";
 //console.log(data);
 //console.log(data.hits[0].recipe.ingredientLines);
 
 export const RecipeListPage = (setSelectedRecipe) => {
   return (
     <Center>
-      <Heading>Your Recipe App</Heading>
-      <UnorderedList>
+      <List>
+        <Heading>Your Recipe App</Heading>
+        <RecipeSearch onClick={setSelectedRecipe} />
+
         <Flex
           gap={16}
           w={["full", "75%"]}
@@ -30,7 +27,7 @@ export const RecipeListPage = (setSelectedRecipe) => {
             </ListItem>
           ))}
         </Flex>
-      </UnorderedList>
+      </List>
     </Center>
   );
 };
