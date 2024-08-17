@@ -46,7 +46,16 @@ recipe.healthLabels.filter
 
 */
 
-import { Center, Image, Text, WrapItem } from "@chakra-ui/react";
+import {
+  CardBody,
+  Card,
+  Box,
+  Image,
+  Text,
+  AspectRatio,
+  Stack,
+  Heading,
+} from "@chakra-ui/react";
 
 export const RecipeItem = ({ recipe, clickFn }) => {
   const filteredHealthLabels = (labels) => {
@@ -56,24 +65,40 @@ export const RecipeItem = ({ recipe, clickFn }) => {
   const healthLabels = filteredHealthLabels(recipe.healthLabels);
 
   return (
-    <WrapItem>
-      <Center gap={8} cursor={"pointer"} onClick={() => clickFn(recipe)}>
-        <Image
-          src={recipe.image}
-          w={50}
-          h={50}
-          borderRadius={"xl"}
-          alt={recipe.alt}
-        />
-        <Text fontWeight={"550"}>{recipe.label}</Text>
-        <Text fontWeight={"350"}>{recipe.dietLabels}</Text>
-        <Text fontWeight={"350"}>{recipe.cautions}</Text>
-        <Text fontWeight={"350"}>{recipe.mealType}</Text>
-        <Text fontWeight={"350"}>{recipe.dishType}</Text>
-        <Text fontWeight={"350"}>
-          {healthLabels.length > 0 ? healthLabels.join("", "") : ""}
-        </Text>
-      </Center>
-    </WrapItem>
+    <Card maxw="sm">
+      <CardBody
+        bg="whiteAlpha.900"
+        borderRadius={"lg"}
+        cursor={"pointer"}
+        //onClick={() => clickFn(recipe)}
+      >
+        <Box boxSize="sm">
+          <AspectRatio maxW="400px" ratio={4 / 2}>
+            <Image
+              //objectFit={"cover"}
+              //maxW={{ base: "100%" }}
+              src={recipe.image}
+              borderRadius={"lg"}
+              alt={recipe.alt}
+            />
+          </AspectRatio>
+
+          <Stack mt="6" spacing="3">
+            <Text fontWeight={"350"}>{recipe.mealType}</Text>
+            <Heading size="md">{recipe.label}</Heading>
+            <Text fontWeight={"350"} bg="purple.400">
+              {healthLabels.length > 0 ? healthLabels.join("", "") : ""}
+            </Text>
+            <Text fontWeight={"350"} bg="green.400">
+              {`${recipe.dietLabels}`}
+            </Text>
+            S<Text fontWeight={"350"}>{`Dish: ${recipe.dishType}`}</Text>
+            <Text fontWeight={"350"} bg="red.500">
+              {`Cautions: ${recipe.cautions}`}
+            </Text>
+          </Stack>
+        </Box>
+      </CardBody>
+    </Card>
   );
 };

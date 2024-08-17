@@ -6,24 +6,23 @@ import { RecipeSearch } from "../components/RecipeSearch";
 //console.log(data);
 //console.log(data.hits[0].recipe.ingredientLines);
 
-export const RecipeListPage = (setSelectedRecipe) => {
+export const RecipeListPage = (setSelectedRecipe, onClick) => {
   return (
-    <Center>
+    <Center bg="blue.500">
       <List>
         <Heading>Your Recipe App</Heading>
         <RecipeSearch onClick={setSelectedRecipe} />
 
         <Flex
-          gap={16}
-          w={["full", "75%"]}
+          gap={10}
+          w={["full", "100%"]}
           flexWrap="wrap"
-          flexDir={["row", "column"]}
           justify="center"
           alignItems="center"
         >
           {data.hits.map((recipe) => (
             <ListItem key={recipe}>
-              <RecipeItems recipe={recipe.recipe} />
+              <RecipeItems recipe={recipe.recipe} /*onClick={onClick} */ />
             </ListItem>
           ))}
         </Flex>
@@ -31,3 +30,17 @@ export const RecipeListPage = (setSelectedRecipe) => {
     </Center>
   );
 };
+
+/*
+<RecipesPage setRecipe={setSelectedRecipe} />
+const [selectedRecipe, setSelectedRecipe] = useState();
+export const RecipeListPage = () => {
+export const RecipeListPage = ({setRecipe}) => {
+
+import { data } from '../utils/data';
+const [selectedRecipeList, setSelectedRecipeList] = useState(data.hits);
+<SearchRecipes setResults={setSelectedRecipeList} />
+
+<RecipesPage setRecipe={setSelectedRecipe} />
+export const RecipeListPage = ({setRecipe}) => {
+*/

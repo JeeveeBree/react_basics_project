@@ -3,8 +3,6 @@ import { TextInput } from "./ui/Textinput";
 import { RecipeItems } from "./RecipeItems";
 import { data } from "../utils/data";
 
-console.log(data);
-
 export const RecipeSearch = ({ onClick }) => {
   const [searchField, setSearchField] = useState("");
   const [selectedHealthLabel, setSelectedHealthLabel] = useState("");
@@ -25,13 +23,17 @@ export const RecipeSearch = ({ onClick }) => {
         );
       })
     : [];
+
   /*
   const matchedRecipes = data.hits.filter((recipe) => {
     return recipe.label.toLowercase().includes(searchField.toLowerCase());
-  });*/ /*
+  });
+*/
+  /*
   const matchedRecipes = data.filter((label) => {
     return label.toLowerCase().includes(searchField.toLowerCase());
-  });*/
+  });
+*/
 
   return (
     <>
