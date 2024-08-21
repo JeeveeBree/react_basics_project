@@ -5,7 +5,7 @@ import { Heading } from "@chakra-ui/react";
 export const App = () => {
   const [selectedRecipe, setSelectedRecipe] = useState();
 
-  return <RecipeListPage />;
+    return <RecipeListPage setRecipe={setSelectedRecipe/>;
 };
 
 /*
@@ -23,3 +23,11 @@ const [selectedRecipeList, setSelectedRecipeList] = useState(data.hits);
 export const RecipeListPage = ({setRecipe}) => {
 
 */
+
+
+App.jsx:
+export const App = () => {
+  const [selectedRecipe, setSelectedRecipe] = useState();
+
+  return <RecipeListPage setRecipe={setSelectedRecipe} />;
+};

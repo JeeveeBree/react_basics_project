@@ -3,7 +3,7 @@ import { TextInput } from "./ui/Textinput";
 import { RecipeItems } from "./RecipeItems";
 import { data } from "../utils/data";
 
-export const RecipeSearch = ({ onClick }) => {
+export const RecipeSearch = ({ setResults }) => {
   const [searchField, setSearchField] = useState("");
   const [selectedHealthLabel, setSelectedHealthLabel] = useState("");
 
@@ -59,3 +59,14 @@ const [selectedRecipeList, setSelectedRecipeList] = useState(data.hits);
 export const RecipeListPage = ({setRecipe}) => {
 
 */
+
+RecipeSearch.jsx;
+export const RecipeSearch = ({ setResults }) => {
+  const handleChange = (event) => {
+    const matchedRecipes = ["hallo", "test"];
+
+    console.log("event.target.value:", event.target.value);
+    console.log("matchedRecipes:", matchedRecipes);
+    setResults(matchedRecipes);
+  };
+};

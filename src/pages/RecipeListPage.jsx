@@ -6,7 +6,8 @@ import { RecipeSearch } from "../components/RecipeSearch";
 //console.log(data);
 //console.log(data.hits[0].recipe.ingredientLines);
 
-export const RecipeListPage = (setSelectedRecipe, onClick) => {
+export const RecipeListPage = ({ setRecipe }) => {
+  const [selectedRecipeList, setSelectedRecipeList] = useState(data.hits);
   return (
     <Center bg="blue.500">
       <List>
@@ -44,3 +45,12 @@ const [selectedRecipeList, setSelectedRecipeList] = useState(data.hits);
 <RecipesPage setRecipe={setSelectedRecipe} />
 export const RecipeListPage = ({setRecipe}) => {
 */
+
+
+
+
+RecipeListPage.jsx
+export const RecipeListPage = ({setRecipe}) => {
+    const [selectedRecipeList, setSelectedRecipeList] = useState(data.hits)
+    ...
+    <RecipeSearch setResults={setSelectedRecipeList} />
