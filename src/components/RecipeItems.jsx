@@ -2,7 +2,7 @@ import { Flex } from "@chakra-ui/react";
 import { RecipeItem } from "./RecipeItem";
 
 export const RecipeItems = ({ recipe, onClick }) => {
-  //console.log(recipe);
+  //console.log("RecipeItems recipe", recipe);
   if (!recipe) return null;
   return (
     <Flex
@@ -13,9 +13,7 @@ export const RecipeItems = ({ recipe, onClick }) => {
     //justify="center"
     //alignItems="center"
     >
-      {[recipe].map((recipe) => (
-        <RecipeItem key={recipe.id} recipe={recipe} /*onClick={onClick} */ />
-      ))}
+      <RecipeItem key={recipe.id} recipe={recipe} onClick={onClick} />
     </Flex>
   );
 };

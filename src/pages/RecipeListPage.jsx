@@ -3,31 +3,44 @@ import { ListItem, List } from "@chakra-ui/react";
 import { data } from "../utils/data";
 import { RecipeItems } from "../components/RecipeItems";
 import { RecipeSearch } from "../components/RecipeSearch";
+import { useState } from "react";
+import { RecipePage } from "../components/RecipePage";
 //console.log(data);
 //console.log(data.hits[0].recipe.ingredientLines);
 
 export const RecipeListPage = ({ setRecipe }) => {
-  const [selectedRecipeList, setSelectedRecipeList] = useState(data.hits);
+  const [selectedRecipe /*List*/, setSelectedRecipe /*list*/] = useState(
+    data.hits
+  );
+  console.log("selectedRecipe", selectedRecipe);
+  console.log("setSelectedRecipe", setSelectedRecipe);
   return (
     <Center bg="blue.500">
-      <List>
-        <Heading>Your Recipe App</Heading>
-        <RecipeSearch onClick={setSelectedRecipe} />
+      {selectedRecipe && selectedRecipe.recipe ? (
+        <RecipePage
+          recipe={selectedRecipe.recipe}
+          onClick={setSelectedRecipe}
+        />
+      ) : (
+        <List>
+          <Heading>Your Recipe App</Heading>
+          <RecipeSearch onClick={setSelectedRecipe} />
 
-        <Flex
-          gap={10}
-          w={["full", "100%"]}
-          flexWrap="wrap"
-          justify="center"
-          alignItems="center"
-        >
-          {data.hits.map((recipe) => (
-            <ListItem key={recipe}>
-              <RecipeItems recipe={recipe.recipe} /*onClick={onClick} */ />
-            </ListItem>
-          ))}
-        </Flex>
-      </List>
+          <Flex
+            gap={10}
+            w={["full", "100%"]}
+            flexWrap="wrap"
+            justify="center"
+            alignItems="center"
+          >
+            {data.hits.map((recipe) => (
+              <ListItem key={recipe}>
+                <RecipeItems recipe={recipe.recipe} /*onClick={onClick} */ />
+              </ListItem>
+            ))}
+          </Flex>
+        </List>
+      )}
     </Center>
   );
 };
@@ -46,11 +59,10 @@ const [selectedRecipeList, setSelectedRecipeList] = useState(data.hits);
 export const RecipeListPage = ({setRecipe}) => {
 */
 
-
-
-
+/*
 RecipeListPage.jsx
 export const RecipeListPage = ({setRecipe}) => {
     const [selectedRecipeList, setSelectedRecipeList] = useState(data.hits)
     ...
     <RecipeSearch setResults={setSelectedRecipeList} />
+*/

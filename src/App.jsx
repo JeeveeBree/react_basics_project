@@ -1,12 +1,13 @@
 import { RecipeListPage } from "./pages/RecipeListPage";
 import { useState } from "react";
-import { Heading } from "@chakra-ui/react";
 
+/*
 export const App = () => {
   const [selectedRecipe, setSelectedRecipe] = useState();
 
-    return <RecipeListPage setRecipe={setSelectedRecipe/>;
+    return <RecipeListPage setRecipe={setSelectedRecipe}/>
 };
+*/
 
 /*
 
@@ -24,8 +25,6 @@ export const RecipeListPage = ({setRecipe}) => {
 
 */
 
-
-App.jsx:
 export const App = () => {
   const [selectedRecipe, setSelectedRecipe] = useState();
 
