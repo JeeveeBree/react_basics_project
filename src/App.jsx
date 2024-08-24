@@ -26,7 +26,7 @@ export const RecipeListPage = ({setRecipe}) => {
 */
 
 export const App = () => {
-  const [selectedRecipe, setSelectedRecipe] = useState();
+  const [selectedRecipeList, setSelectedRecipeList] = useState();
 
-  return <RecipeListPage setRecipe={setSelectedRecipe} />;
+  return <RecipeListPage setRecipe={setSelectedRecipeList} />;
 };

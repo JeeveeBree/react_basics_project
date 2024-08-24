@@ -1,5 +1,4 @@
-import { Center, Heading, Flex, Text } from "@chakra-ui/react";
-import { ListItem, List } from "@chakra-ui/react";
+import { Center, Heading, Flex, ListItem, List } from "@chakra-ui/react";
 import { data } from "../utils/data";
 import { RecipeItems } from "../components/RecipeItems";
 import { RecipeSearch } from "../components/RecipeSearch";
@@ -12,19 +11,19 @@ export const RecipeListPage = ({ setRecipe }) => {
   const [selectedRecipe /*List*/, setSelectedRecipe /*list*/] = useState(
     data.hits
   );
+  console.log("setRecipe", setRecipe);
   console.log("selectedRecipe", selectedRecipe);
   console.log("setSelectedRecipe", setSelectedRecipe);
   return (
     <Center bg="blue.500">
       {selectedRecipe && selectedRecipe.recipe ? (
-        <RecipePage
-          recipe={selectedRecipe.recipe}
-          onClick={setSelectedRecipe}
-        />
+        <RecipePage recipe={selectedRecipe.recipe} onClick={setRecipe} />
       ) : (
         <List>
           <Heading>Your Recipe App</Heading>
-          <RecipeSearch onClick={setSelectedRecipe} />
+          <RecipeSearch
+            setResults={setSelectedRecipe} /*onClick={setSelectedRecipe} */
+          />
 
           <Flex
             gap={10}
@@ -35,7 +34,10 @@ export const RecipeListPage = ({ setRecipe }) => {
           >
             {data.hits.map((recipe) => (
               <ListItem key={recipe}>
-                <RecipeItems recipe={recipe.recipe} /*onClick={onClick} */ />
+                <RecipeItems
+                  recipe={recipe.recipe}
+                  //onClick={setSelectedRecipe}
+                />
               </ListItem>
             ))}
           </Flex>
