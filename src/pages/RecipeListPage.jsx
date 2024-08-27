@@ -32,7 +32,7 @@ export const RecipeListPage = ({ setRecipe }) => {
             justify="center"
             alignItems="center"
           >
-            {data.hits.map((recipe) => (
+            {selectedRecipe.map((recipe) => (
               <ListItem key={recipe}>
                 <RecipeItems
                   recipe={recipe.recipe}

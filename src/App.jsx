@@ -1,4 +1,6 @@
+import { Box } from "@chakra-ui/react";
 import { RecipeListPage } from "./pages/RecipeListPage";
+import { RecipePage } from "./components/RecipePage";
 import { useState } from "react";
 
 /*
@@ -25,8 +27,29 @@ export const RecipeListPage = ({setRecipe}) => {
 
 */
 
+// export const App = () => {
+//   const [selectedRecipeList, setSelectedRecipeList] = useState();
+//     const [selectedRecipe, setSelectedRecipe] = useState();
+//       return {
+//         <Box>
+//         {selectedRecipe ? ( <RecipePage recipe={selectedRecipe} />) : (<RecipeListPage setRecipe={setSelectedRecipeList} />)}
+//      }
+//      </Box>
+
+//   //return <RecipeListPage setRecipe={setSelectedRecipeList} />;
+// };
+
 export const App = () => {
   const [selectedRecipeList, setSelectedRecipeList] = useState();
+  const [selectedRecipe, setSelectedRecipe] = useState();
 
-  return <RecipeListPage setRecipe={setSelectedRecipeList} />;
+  return (
+    <Box>
+      {selectedRecipe ? (
+        <RecipePage recipe={selectedRecipe} />
+      ) : (
+        <RecipeListPage setRecipe={setSelectedRecipeList} />
+      )}
+    </Box>
+  );
 };
