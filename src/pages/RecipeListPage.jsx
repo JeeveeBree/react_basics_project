@@ -3,49 +3,91 @@ import { data } from "../utils/data";
 import { RecipeItems } from "../components/RecipeItems";
 import { RecipeSearch } from "../components/RecipeSearch";
 import { useState } from "react";
-import { RecipePage } from "../components/RecipePage";
-//console.log(data);
-//console.log(data.hits[0].recipe.ingredientLines);
 
 export const RecipeListPage = ({ setRecipe }) => {
-  const [selectedRecipe /*List*/, setSelectedRecipe /*list*/] = useState(
-    data.hits
-  );
-  console.log("setRecipe", setRecipe);
-  console.log("selectedRecipe", selectedRecipe);
-  console.log("setSelectedRecipe", setSelectedRecipe);
-  return (
-    <Center bg="blue.500">
-      {selectedRecipe && selectedRecipe.recipe ? (
-        <RecipePage recipe={selectedRecipe.recipe} onClick={setRecipe} />
-      ) : (
-        <List>
-          <Heading>Your Recipe App</Heading>
-          <RecipeSearch
-            setResults={setSelectedRecipe} /*onClick={setSelectedRecipe} */
-          />
+  const [selectedRecipeList, setSelectedRecipeList] = useState(data.hits);
 
-          <Flex
-            gap={10}
-            w={["full", "100%"]}
-            flexWrap="wrap"
-            justify="center"
-            alignItems="center"
-          >
-            {selectedRecipe.map((recipe) => (
-              <ListItem key={recipe}>
-                <RecipeItems
-                  recipe={recipe.recipe}
-                  //onClick={setSelectedRecipe}
-                />
-              </ListItem>
-            ))}
-          </Flex>
-        </List>
-      )}
+  const handleRecipeClick = (recipe) => {
+    setRecipe(recipe);
+  };
+
+  return (
+    <Center bg="blue.500" minH="100vh">
+      <List spacing={4}>
+        <Heading color="black">Your Recipe App</Heading>
+        <RecipeSearch setResults={setSelectedRecipeList} />
+
+        <Flex
+          gap={10}
+          w={["full", "100%"]}
+          flexWrap="wrap"
+          justify="center"
+          alignItems="center"
+        >
+          {selectedRecipeList.map(({ recipe }) => (
+            <ListItem
+              key={recipe.label}
+              cursor="pointer"
+              onClick={() => handleRecipeClick(recipe)}
+            >
+              <RecipeItems recipe={recipe} />
+            </ListItem>
+          ))}
+        </Flex>
+      </List>
     </Center>
   );
 };
+
+// import { Center, Heading, Flex, ListItem, List } from "@chakra-ui/react";
+// import { data } from "../utils/data";
+// import { RecipeItems } from "../components/RecipeItems";
+// import { RecipeSearch } from "../components/RecipeSearch";
+// import { useState } from "react";
+// import { RecipePage } from "../components/RecipePage";
+// //console.log(data);
+// //console.log(data.hits[0].recipe.ingredientLines);
+
+// export const RecipeListPage = ({ setRecipe }) => {
+//   const [selectedRecipeList, setSelectedRecipelist] = useState(data.hits);
+//   const handleRecipeClick = (recipe) => {
+//     setRecipe(recipe);
+//   };
+//   console.log("setRecipe", setRecipe);
+//   console.log("selectedRecipeList", selectedRecipeList);
+//   console.log("setSelectedRecipeList", setSelectedRecipelist);
+
+//   return (
+//     <Center bg="blue.500">
+//       <List>
+//         <Heading>Your Recipe App</Heading>
+//         <RecipeSearch
+//           setResults={
+//             setSelectedRecipelist
+//           } /*onClick={setSelectedRecipeList} */
+//         />
+
+//         <Flex
+//           gap={10}
+//           w={["full", "100%"]}
+//           flexWrap="wrap"
+//           justify="center"
+//           alignItems="center"
+//         >
+//           {selectedRecipeList.map((recipe) => (
+//             <ListItem key={recipe}>
+//               <RecipeItems
+//                 recipe={recipe.recipe}
+//                 onClick={() => handleRecipeClick(recipe)}
+//               />
+//               {recipe.name}
+//             </ListItem>
+//           ))}
+//         </Flex>
+//       </List>
+//     </Center>
+//   );
+// };
 
 /*
 <RecipesPage setRecipe={setSelectedRecipe} />
