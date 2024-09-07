@@ -7,6 +7,7 @@ import {
   AspectRatio,
   Stack,
   Heading,
+  Flex,
 } from "@chakra-ui/react";
 
 export const RecipeItem = ({ recipe, clickFn }) => {
@@ -35,19 +36,59 @@ export const RecipeItem = ({ recipe, clickFn }) => {
             />
           </AspectRatio>
 
-          <Stack mt="4" spacing="1">
+          <Stack mt="2" spacing="1">
             <Text fontWeight={"350"}>{recipe.mealType}</Text>
             <Heading size="md">{recipe.label}</Heading>
-            <Text fontWeight={"350"} bg="purple.400">
-              {healthLabels.length > 0 ? healthLabels.join("", "") : ""}
-            </Text>
-            <Text fontWeight={"350"} bg="green.400">
-              {`${recipe.dietLabels}`}
-            </Text>
-            <Text fontWeight={"350"}>{`Dish: ${recipe.dishType}`}</Text>
-            <Text fontWeight={"350"} bg="red.500">
-              {`Cautions: ${recipe.cautions}`}
-            </Text>
+            {healthLabels.length > 0 && (
+              <Flex>
+                {healthLabels.map((label, index) => (
+                  <Box
+                    key={index}
+                    bg="purple.400"
+                    color="white"
+                    p={1}
+                    m={1}
+                    borderRadius="md"
+                  >
+                    {label}
+                  </Box>
+                ))}
+              </Flex>
+            )}
+
+            {recipe.dietLabels.length > 0 && (
+              <Flex>
+                {recipe.dietLabels.map((label, index) => (
+                  <Box
+                    key={index}
+                    bg="green.400"
+                    color="white"
+                    p={1}
+                    m={1}
+                    borderRadius="md"
+                  >
+                    {label}
+                  </Box>
+                ))}
+              </Flex>
+            )}
+
+            {recipe.cautions.length > 0 && (
+              <Flex>
+                {recipe.cautions.map((caution, index) => (
+                  <Box
+                    key={index}
+                    bg="red.500"
+                    color="white"
+                    p={1}
+                    m={1}
+                    borderRadius="md"
+                  >
+                    {caution}
+                  </Box>
+                ))}
+              </Flex>
+            )}
           </Stack>
         </Box>
       </CardBody>
