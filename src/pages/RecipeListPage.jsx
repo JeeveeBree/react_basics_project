@@ -12,13 +12,15 @@ export const RecipeListPage = ({ setRecipe }) => {
   };
 
   return (
-    <Center bg="blue.500" minH="100vh" p={2}>
+    <Center bg="gray.500" minH="100vh" p={2}>
       <List spacing={4}>
         <center>
           <Heading color="black" m={1}>
             R-App-cipe
           </Heading>
-          <Text m={1}>An app for recipes</Text>
+          <Text color="white" m={1}>
+            An app for recipes
+          </Text>
           <RecipeSearch setResults={setSelectedRecipeList} />
         </center>
 

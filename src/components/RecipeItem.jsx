@@ -8,6 +8,7 @@ import {
   Stack,
   Heading,
   Flex,
+  Center,
 } from "@chakra-ui/react";
 
 export const RecipeItem = ({ recipe, clickFn }) => {
@@ -20,9 +21,10 @@ export const RecipeItem = ({ recipe, clickFn }) => {
   return (
     <Card /*maxw="sm"*/>
       <CardBody
-        bg="whiteAlpha.900"
-        borderRadius={"lg"}
-        cursor={"pointer"}
+        bg="whiteAlpha.700"
+        borderRadius="lg"
+        cursor="pointer"
+        boxShadow="dark-lg"
         //onClick={() => clickFn(recipe)}
       >
         <Box boxSize="sm">
@@ -35,17 +37,20 @@ export const RecipeItem = ({ recipe, clickFn }) => {
               alt={recipe.alt}
             />
           </AspectRatio>
-
-          <Stack mt="2" spacing="1">
+          {/* <Center> */}
+          <Stack mt="1" spacing="1">
             <Text fontWeight={"350"}>{recipe.mealType}</Text>
-            <Heading size="md">{recipe.label}</Heading>
-            {healthLabels.length > 0 && (
+            <Heading wrap="row" justifyContent="center" size="md">
+              {recipe.label}
+            </Heading>
+
+            {recipe.dietLabels.length > 0 && (
               <Flex>
-                {healthLabels.map((label, index) => (
+                {recipe.dietLabels.map((label, index) => (
                   <Box
                     key={index}
-                    bg="purple.400"
-                    color="white"
+                    bg="green.200"
+                    color="green.600"
                     p={1}
                     m={1}
                     borderRadius="md"
@@ -56,15 +61,16 @@ export const RecipeItem = ({ recipe, clickFn }) => {
               </Flex>
             )}
 
-            {recipe.dietLabels.length > 0 && (
+            {healthLabels.length > 0 && (
               <Flex>
-                {recipe.dietLabels.map((label, index) => (
+                {healthLabels.map((label, index) => (
                   <Box
                     key={index}
-                    bg="green.400"
-                    color="white"
+                    bg="orange.300"
+                    color="orange.600"
                     p={1}
                     m={1}
+                    boxShadow="2xl"
                     borderRadius="md"
                   >
                     {label}
@@ -78,8 +84,8 @@ export const RecipeItem = ({ recipe, clickFn }) => {
                 {recipe.cautions.map((caution, index) => (
                   <Box
                     key={index}
-                    bg="red.500"
-                    color="white"
+                    bg="red.300"
+                    color="red.600"
                     p={1}
                     m={1}
                     borderRadius="md"
@@ -90,6 +96,7 @@ export const RecipeItem = ({ recipe, clickFn }) => {
               </Flex>
             )}
           </Stack>
+          {/* </Center> */}
         </Box>
       </CardBody>
     </Card>
