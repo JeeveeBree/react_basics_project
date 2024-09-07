@@ -14,7 +14,6 @@ import {
 export const RecipePage = ({ recipe, clickFn }) => {
   return (
     <Center bg="gray.500" height="100%">
-      {/* <Flex> */}
       <Box
         bg="whiteAlpha.700"
         boxShadow="dark-lg"
@@ -26,16 +25,14 @@ export const RecipePage = ({ recipe, clickFn }) => {
           <Button color="black" onClick={() => clickFn()}>
             {"< Back"}
           </Button>
+
           <Spacer />
 
           <Heading>R-App-cipe</Heading>
-          {/* <Spacer /> */}
         </Flex>
 
         <AspectRatio maxH="20em" ratio={4 / 2}>
           <Image
-            //objectFit={"cover"}
-            // maxW="full"
             marginTop={2}
             src={recipe.image}
             borderRadius={"lg"}
@@ -81,10 +78,6 @@ export const RecipePage = ({ recipe, clickFn }) => {
                 </Box>
               ))}
             </Flex>
-            {/* <Text fontWeight={"350"} m={1} bg="green.400">
-                {recipe.dietLabels.join(", ")}
-              </Text> */}
-            {/* <Text fontWeight={"350"}>{`Dish: ${recipe.dishType}`}</Text> */}
             <label>Health labels:</label>
             <Flex wrap="wrap" mt={2}>
               {recipe.healthLabels.map((label, index) => (
@@ -100,12 +93,6 @@ export const RecipePage = ({ recipe, clickFn }) => {
                 </Box>
               ))}
             </Flex>
-            {/* <Stack mt="4" spacing="1"> */}
-            {/* <label>Health labels:</label>
-              <Text fontWeight={"350"} m={1} bg="purple.400">
-                {recipe.healthLabels.join(", ")}
-              </Text> */}
-
             <label>Cautions:</label>
             <Flex wrap="wrap" mt={2}>
               {recipe.cautions.map((label, index) => (
@@ -121,9 +108,6 @@ export const RecipePage = ({ recipe, clickFn }) => {
                 </Box>
               ))}
             </Flex>
-            {/* <Text fontWeight={"350"} m={1} bg="red.500">
-                {recipe.cautions.join(", ")}
-              </Text> */}
             <label>Total nutrients:</label>
             {recipe.totalNutrients && (
               <Stack m={1} spacing={1}>
@@ -143,13 +127,9 @@ export const RecipePage = ({ recipe, clickFn }) => {
                 )}
               </Stack>
             )}
-            {/* <label>Total nutrients:</label>
-              <Text fontWeight={"350"}>{`${recipe.totalNutrients}`}</Text> */}
-            {/* </Stack> */}
           </Box>
         </Flex>
       </Box>
-      {/* </Flex> */}
     </Center>
   );
 };
