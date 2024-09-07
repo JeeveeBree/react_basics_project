@@ -15,7 +15,7 @@ export const App = () => {
   return (
     <Box>
       {selectedRecipe ? (
-        <RecipePage recipe={selectedRecipe} />
+        <RecipePage recipe={selectedRecipe} clickFn={setSelectedRecipe} />
       ) : (
         <RecipeListPage setRecipe={setSelectedRecipe} />
       )}

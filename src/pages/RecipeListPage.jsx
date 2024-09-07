@@ -1,4 +1,4 @@
-import { Center, Heading, Flex, ListItem, List } from "@chakra-ui/react";
+import { Center, Heading, Flex, ListItem, List, Text } from "@chakra-ui/react";
 import { data } from "../utils/data";
 import { RecipeItems } from "../components/RecipeItems";
 import { RecipeSearch } from "../components/RecipeSearch";
@@ -12,10 +12,15 @@ export const RecipeListPage = ({ setRecipe }) => {
   };
 
   return (
-    <Center bg="blue.500" minH="100vh">
+    <Center bg="blue.500" minH="100vh" p={2}>
       <List spacing={4}>
-        <Heading color="black">Your Recipe App</Heading>
-        <RecipeSearch setResults={setSelectedRecipeList} />
+        <center>
+          <Heading color="black" m={1}>
+            R-App-cipe
+          </Heading>
+          <Text m={1}>An app for recipes</Text>
+          <RecipeSearch setResults={setSelectedRecipeList} />
+        </center>
 
         <Flex
           gap={10}

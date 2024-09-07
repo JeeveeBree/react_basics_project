@@ -33,12 +33,13 @@ export const RecipeSearch = ({ setResults }) => {
 
   return (
     <>
-      <label>Search for recipes or health labels:</label>
+      {/* <label>Search for recipes or health labels:</label> */}
       <TextInput
+        placeholder="Search for recipes or health labels:"
         onChange={handleSearchChange}
         value={searchField}
-        w={200}
-        mb={8}
+        // w={200}
+        // mb={8}
       />
 
       {/* <RecipeItems recipes={matchedRecipes} /> */}
