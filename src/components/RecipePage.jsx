@@ -14,15 +14,9 @@ import {
 export const RecipePage = ({ recipe, clickFn }) => {
   return (
     <Center bg="gray.500" height="100%">
-      <Box
-        bg="whiteAlpha.700"
-        boxShadow="dark-lg"
-        maxW="80em"
-        height="full"
-        p={10}
-      >
+      <Box bg="white" boxShadow="dark-lg" maxW="80em" height="full" p={10}>
         <Flex>
-          <Button color="black" onClick={() => clickFn()}>
+          <Button color="white" bg="black" onClick={() => clickFn()}>
             {"< Back"}
           </Button>
 

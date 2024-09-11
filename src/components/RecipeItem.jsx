@@ -20,7 +20,7 @@ export const RecipeItem = ({ recipe }) => {
   return (
     <Card>
       <CardBody
-        bg="whiteAlpha.700"
+        bg="white"
         borderRadius="lg"
         cursor="pointer"
         boxShadow="dark-lg"

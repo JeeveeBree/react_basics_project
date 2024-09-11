@@ -41,6 +41,16 @@ export const RecipeListPage = ({ setRecipe }) => {
             </ListItem>
           ))}
         </Flex>
+        <footer>
+          <Center>
+            <Heading color="black" m={1}>
+              R-App-cipe
+            </Heading>
+            <Text color="white" m={1}>
+              An app for recipes
+            </Text>
+          </Center>
+        </footer>
       </List>
     </Center>
   );

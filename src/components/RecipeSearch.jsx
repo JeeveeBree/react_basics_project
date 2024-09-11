@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { TextInput } from "./ui/Textinput";
-import { RecipeItems } from "./RecipeItems";
 import { data } from "../utils/data";
 
 export const RecipeSearch = ({ setResults }) => {
